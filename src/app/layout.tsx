@@ -1,4 +1,4 @@
-import { NavBar } from "@/components";
+import { NavBar, Provider } from "@/components";
 import "./globals.css";
 import styles from "./styles.module.css";
 import type { Metadata } from "next";
@@ -12,8 +12,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html>
       <body className={styles.container}>
-        <NavBar />
-        {children}
+        <Provider>
+          <NavBar />
+          {children}
+        </Provider>
       </body>
     </html>
   );
