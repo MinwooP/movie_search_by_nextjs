@@ -1,4 +1,4 @@
-"use Client";
+"use client";
 
 import { useSearchParams } from "next/navigation"
 
@@ -7,16 +7,12 @@ import { useSearchParams } from "next/navigation"
   // 이 keyword에 해당하는 단어와 현재 카테고리 type에 맞는 content 목록을 불러와서 이를 렌더링해준다. 
   // baseurl/?apikey=~&s=키워드&type=movie&page=1 로 호출 
 
-export default function ContentList() {
+export default function ContentList({type}: {type: string}) {
   const searchParams = useSearchParams(); // 바뀔 때마다 자동으로 업데이트 ? 
   const keyword = searchParams.get('keyword'); // undefined or avengers
 
   
-
   return (
     <div>content List</div>
-
-
-
   )
 }
