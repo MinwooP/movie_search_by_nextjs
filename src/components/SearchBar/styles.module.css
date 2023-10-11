@@ -1,0 +1,27 @@
+.container {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  padding: 28px 0;
+}
+
+.input {
+  margin-left: 32px;
+  width: 60%;
+  align-self: stretch;
+  text-decoration: none;
+  outline: none;
+  font-size: 24px;
+}
+
+.searchButton {
+  align-self: stretch;
+  margin-left: 32px;
+  cursor: pointer;
+}
+
+.resetButton {
+  align-self: stretch;
+  margin-left: 32px;
+  cursor: pointer;
+}

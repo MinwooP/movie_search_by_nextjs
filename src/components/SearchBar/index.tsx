@@ -2,6 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import { ChangeEvent, KeyboardEvent, useState } from "react";
+import styles from "./styles.module.css";
 
 // 각 /movie, /series, /episode 폴더 내 page.js에서 사용할 컴포넌트
 
@@ -18,7 +19,7 @@ export default function SearchBar() {
     const { value } = e.target;
     setKeyword(value);
     console.log(value);
-  };  
+  };
 
   const onClickReset = () => {
     // keyword state를  "" 으로 바꿔줌
@@ -30,7 +31,7 @@ export default function SearchBar() {
     // keyword가 특정 단어이면 쿼리스트링에 추가하기
     // keyword가 ""이면 쿼리스트링에서 없애기
     setKeyword(keyword.trim()); // 앞뒤 공백 제거
-    if (keyword) {
+    if (keyword.trim()) {
       router.push(`${pathname}?keyword=${keyword}`);
     } else {
       router.push(`${pathname}`);
@@ -44,10 +45,14 @@ export default function SearchBar() {
   };
 
   return (
-    <div>
-      <input value={keyword} onChange={onChangeInput} onKeyDown={onKeyDownEnter} />
-      <button onCanPlay={onClickSearch}>search</button>
-      <button onClick={onClickReset}>reset</button>
+    <div className={styles.container}>
+      <input value={keyword} onChange={onChangeInput} onKeyDown={onKeyDownEnter} className={styles.input} />
+      <button onCanPlay={onClickSearch} className={styles.searchButton}>
+        search
+      </button>
+      <button onClick={onClickReset} className={styles.resetButton}>
+        reset
+      </button>
     </div>
   );
 }
