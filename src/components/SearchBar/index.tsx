@@ -47,7 +47,7 @@ export default function SearchBar() {
   return (
     <div className={styles.container}>
       <input value={keyword} onChange={onChangeInput} onKeyDown={onKeyDownEnter} className={styles.input} />
-      <button onCanPlay={onClickSearch} className={styles.searchButton}>
+      <button onClick={onClickSearch} className={styles.searchButton}>
         search
       </button>
       <button onClick={onClickReset} className={styles.resetButton}>

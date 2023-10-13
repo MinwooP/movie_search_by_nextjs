@@ -4,25 +4,19 @@ import { getContentList } from "@/apis/movie";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetContentList = (type: string, title: string, page: number) => {
-  return useQuery({
-    queryKey: ['getContentList'],
-    queryFn: async () => {
-      const data = await getContentList(type, title, page);
-      return data;
+  const { data, refetch } = useQuery(
+    [{ scope: "ContentList", type, title, page }],
+    () => {
+      console.log(`fetch Data: ${type},${title}, ${page}`);
+      return getContentList(type, title, page);
+    },
+    {
+      staleTime: 0,
+      cacheTime: 0,
     }
-    // TODO: 나중에 필요하면 initialData 추가하기
-  })
-}
+  );
 
-
-
-
-
-
-
-
-
-
-
-
-
+  return {
+    contentListData: data.Search
+  };
+};

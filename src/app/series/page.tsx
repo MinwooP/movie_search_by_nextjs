@@ -1,10 +1,10 @@
-import { ContentList, SearchBar } from "@/components";
+import { Content, SearchBar } from "@/components";
 
 export default function Series() {
   return (
     <>
       <SearchBar />
-      <ContentList type="series" />
+      <Content type="series" />
     </>
   );
 }
