@@ -5,12 +5,11 @@ export const getContentList = async (type: string, title: string, page: number) 
   try {
     const path = `?apikey=7035c60c&type=${type}&s=${title}&page=${page}`;
     const { data } = await baseInstance.get(path);
-    return data;
+    return {
+      contentList: data.Search,
+      totalContentLength: data.totalResults
+    }; // 10개의 data와 data 총 개수 return 
   } catch (e) {
     if (e instanceof Error) throw new Error(e.message);
   }
 };
-
-
-
-

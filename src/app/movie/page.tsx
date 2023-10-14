@@ -8,7 +8,7 @@ export default function Movie() {
   return (
     <div className={styles.container}>
       <SearchBar />
-      <Suspense fallback={<h1>Loading movieList...</h1>}>
+      <Suspense fallback={<h1>Loading movieList...</h1>}> 
         <Content type="movie" />
       </Suspense>
     </div>
